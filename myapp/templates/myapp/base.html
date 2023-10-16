@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'myapp/style.css' %}"/>
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <title>Online Store APP - {% block title %}Welcome!{% endblock %}</title>
+</head>
+<body>
+<div>
+    <h1>{% block myhdg %}
+        {% if user.is_authenticated %}
+            hello {{ user.first_name }}
+        {% else %}
+             hello user
+        {% endif %}
+    {% endblock %}</h1>
+    {% block body_block %}*** {% endblock %}
+</div>
+<!--<hr/> -->
+<div>
+    <ul>
+        {% block link_block %}
+        <li class="hbar1"><a href="/myapp/about/">Find out about this
+            site</a></li>
+        <li class="hbar1"><a href="{% url 'myapp:products' %}">Click here to
+            see products</a></li>
+        {% if user.is_authenticated %}
+            <li class="hbar1"><a href="{% url 'myapp:logout' %}">logout</a></li>
+            <li class="hbar1"><a href="{% url 'myapp:myorders' %}">View Orders</a></li>
+
+        {% else %}
+            <li class="hbar1"><a href="{% url 'myapp:login' %}">login</a></li>
+            <li class="hbar1"><a href="{% url 'myapp:register' %}">Register</a></li>
+        {% endif %}
+        <li class="hbar1"><a href="{% url 'myapp:index' %}">Click here to
+            return to main page</a><br/></li>
+{#        <li class="hbar1"><a href="{% url 'myapp:my_orders' %}">Click here to#}
+{#                check your orders</a><br/></li>#}
+
+        {% endblock %}
+    </ul>
+</div>
+</body>
+</html>

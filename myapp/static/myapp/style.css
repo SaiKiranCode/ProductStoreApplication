@@ -1,0 +1,27 @@
+*{
+    background-color: darkseagreen;
+}
+h1{
+    background-color: yellow;
+    font-size: 17px;
+    position: relative;
+    color: black;
+
+}
+a,ol{
+    color: whitesmoke;
+    text-decoration: none;
+}
+a:hover{
+    text-decoration: underline;
+    color: whitesmoke;
+}
+.hbar1 {
+    color: white;
+    display: inline;
+    margin: 15px;
+}
+.hr{
+
+}
+

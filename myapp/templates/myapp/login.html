@@ -1,0 +1,17 @@
+{% extends 'myapp/base.html' %}
+{% block title %}Login Page{% endblock %}
+{% block body_block %}
+    <div class="form-group">
+        <h3 style="text-align: left;">Login</h3>
+        <form  action="{% url 'myapp:login' %}" method="POST">
+            {% csrf_token %}
+            <input type="text" name="username" id="username" placeholder="User name"/>
+            <input type="password" name="password" id="password" placeholder="Password"/>
+            <input hidden type="text"  id="from_orders" name="from_orders" value="{{ from_orders }}"/>
+            <button class="btn btn-primary" type="submit" value="login">Login</button>
+        </form>
+    </div>
+    <a href = "{% url 'myapp:password_reset' %}">Forgot Password</a>
+
+
+{% endblock %}

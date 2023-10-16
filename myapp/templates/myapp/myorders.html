@@ -1,0 +1,11 @@
+{% extends 'myapp/base.html' %}
+{% block body_block %}
+    <h2>Orders</h2>
+    {% if orders %}
+        {% for order in orders %}
+            <li> {{ order.product }} : {{ order.num_units }} </li>
+        {% endfor %}
+    {% else %}
+        {{ msg }}
+    {% endif %}
+{% endblock %}
